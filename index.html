@@ -49,7 +49,6 @@
       flex-direction: column;
     }
 
-    /* ========== SECTION 1 ========= */
     .first-section {
       background: url('https://picsum.photos/1920/1080?random=12') center/cover no-repeat;
       position: relative;
@@ -106,25 +105,26 @@
     }
 
     .center-container {
-  position: absolute;
-  left: 50%;
-  bottom: 15vh;            /* keeps it above bottom box */
-  transform: translateX(-50%);
-  width: 90%;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  z-index: 1;
-}
+      position: absolute;
+      left: 50%;
+      bottom: 15vh;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      z-index: 1;
+    }
 
-.big-logo img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-}
+    .big-logo img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
     .download-btn {
       display: inline-block;
       padding: 0.75rem 1.5rem;
@@ -143,14 +143,12 @@
       transform: translateY(-2px);
     }
 
-    /* ========== SECTION 2 ========= */
     .c2, .c3, .c4 {
       background: url("Media/Bg.webp") center/cover no-repeat;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    
 
     .static-image {
       width: 90vw;
@@ -166,22 +164,19 @@
       object-fit: contain;
     }
 
-    /* ========== CAROUSEL ========= */
     .c3 {
-  display: flex;
-  justify-content: center;
-  align-items: center;  /* ensures carousel is centered */
-}
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.carousel-wrapper {
-  width: 90vw;
-  max-width: 1200px;
-  aspect-ratio: 2 / 1;
-  margin: auto;
-
-  position: relative; /* make sure buttons anchor to this */
-
-}
+    .carousel-wrapper {
+      width: 90vw;
+      max-width: 1200px;
+      aspect-ratio: 2 / 1;
+      margin: auto;
+      position: relative;
+    }
 
     .carousel {
       width: 100%;
@@ -189,38 +184,36 @@
       overflow: hidden;
       border-radius: 10px;
       display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-
-}
-    
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
 
     .carousel-images {
       display: flex;
       transition: transform 0.5s ease-in-out;
     }
 
-.carousel-images img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;   /* show whole image */
-  margin: auto;
-  flex-shrink: 0;
-}
-.carousel-wrapper button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 10;
-}
+    .carousel-images img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      margin: auto;
+      flex-shrink: 0;
+    }
 
+    .carousel-wrapper button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 10;
+    }
 
     .carousel-wrapper button img {
       width: clamp(50px, 10vw, 120px);
@@ -231,29 +224,26 @@
     .carousel-wrapper button img:hover {
       transform: scale(1.15);
     }
-    
 
     .carousel-wrapper .prev {
-  left: 0;
-  transform: translate(-50%, -50%); /* half inside, half outside */
-}
+      left: 0;
+      transform: translate(-50%, -50%);
+    }
 
-.carousel-wrapper .next {
-  right: 0;
-  transform: translate(50%, -50%);  /* half inside, half outside */
-}
+    .carousel-wrapper .next {
+      right: 0;
+      transform: translate(50%, -50%);
+    }
 
-/* For small screens, just shrink the button icons */
-@media (max-width: 768px) {
-  .carousel-wrapper button img {
-    width: clamp(35px, 8vw, 80px);
-  }
-}
+    @media (max-width: 768px) {
+      .carousel-wrapper button img {
+        width: clamp(35px, 8vw, 80px);
+      }
+    }
   </style>
 </head>
 <body>
   <main class="scroll-container">
-    
     <section id="s1" class="section first-section">
       <div class="top-box">
         <div class="nav-row">
@@ -289,13 +279,13 @@
       <div class="carousel-wrapper">
         <div class="carousel">
           <div class="carousel-images">
-            <img src="Media/Alip.png" >
-            <img src="Media/Udin.png" >
-            <img src="Media/Alin.png" >
+            <img src="Media/Alip.png" alt="Alip">
+            <img src="Media/Udin.png" alt="Udin">
+            <img src="Media/Alin.png" alt="Alin">
           </div>
         </div>
         <button class="prev"><img src="Media/Kiri.webp" alt="Previous"></button>
-        <button class="next"><img src="Media/Kanan.webp" alt="Next"></button>
+        <button class="next"><img src="Media/kanan.webp" alt="Next"></button>
       </div>
     </section>
   </main>
