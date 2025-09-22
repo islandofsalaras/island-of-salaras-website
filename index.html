@@ -42,41 +42,46 @@
       height: 100vh;
       width: 100vw;
       scroll-snap-align: start;
-      font-size: clamp(2rem, 3.5vw, 3.5rem);
+      font-size: clamp(1.2rem, 3vw, 3rem);
       color: white;
       position: relative;
       display: flex;
       flex-direction: column;
     }
 
+    /* ========== SECTION 1 ========= */
     .first-section {
-      background: url('https://picsum.photos/1200/800?random=12') center/cover no-repeat;
+      background: url('https://picsum.photos/1920/1080?random=12') center/cover no-repeat;
       position: relative;
     }
 
-    .top-box {
+    .top-box,
+    .bottom-box {
       position: absolute;
-      top: 0;
       left: 0;
       width: 100%;
-      height: 130px;
+      height: 12vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0 1rem;
-      background: url("Media/Top box.webp") center/contain no-repeat;
+      background-size: cover;
+      background-repeat: no-repeat;
       z-index: 10;
     }
 
+    .top-box { top: 0; background-image: url("Media/Top box.webp"); }
+    .bottom-box { bottom: 0; background-image: url("Media/Bottom box.webp"); }
+
     .logo img {
-      height: 135px;
+      height: 10vh;
+      max-height: 120px;
     }
 
     .nav-row {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 4rem;
+      gap: clamp(1rem, 4vw, 4rem);
     }
 
     .nav-group {
@@ -90,10 +95,9 @@
       cursor: pointer;
       transition: background 0.3s ease, color 0.3s ease;
       color: white;
-      font-size: 0.9rem;
+      font-size: clamp(0.7rem, 1.5vw, 1rem);
       font-weight: bold;
       text-decoration: none;
-      background: transparent;
     }
 
     .nav-item:hover {
@@ -101,58 +105,32 @@
       color: black;
     }
 
-    .middle-box {
-      flex: 4;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-    }
-
-    .bottom-box {
-      height: 130px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: url("Media/Bottom box.webp") center/contain no-repeat;
-    }
-
     .center-container {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 50vw;
-      height: 95%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 1rem;
-      z-index: 1;
-    }
+  position: absolute;
+  left: 50%;
+  bottom: 15vh;            /* keeps it above bottom box */
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  z-index: 1;
+}
 
-    .big-logo {
-      width: 600px;
-      height: 400px;
-      margin: 0 auto;
-      display: flex;
-    }
-
-    .big-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
+.big-logo img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
     .download-btn {
       display: inline-block;
       padding: 0.75rem 1.5rem;
       background: #FFD700;
       color: black;
-      font-size: 1rem;
+      font-size: clamp(0.8rem, 2vw, 1rem);
       font-weight: bold;
       border-radius: 8px;
       text-decoration: none;
@@ -165,81 +143,112 @@
       transform: translateY(-2px);
     }
 
+    /* ========== SECTION 2 ========= */
     .c2, .c3, .c4 {
       background: url("Media/Bg.webp") center/cover no-repeat;
       display: flex;
       justify-content: center;
       align-items: center;
     }
+    
 
-    .carousel-wrapper {
-      position: relative;
-      width: 1200px;
-      height: 600px;
-      margin: auto;
+    .static-image {
+      width: 90vw;
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+
+    .static-image img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    /* ========== CAROUSEL ========= */
+    .c3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;  /* ensures carousel is centered */
+}
+
+.carousel-wrapper {
+  width: 90vw;
+  max-width: 1200px;
+  aspect-ratio: 2 / 1;
+  margin: auto;
+
+  position: relative; /* make sure buttons anchor to this */
+
+}
 
     .carousel {
       width: 100%;
       height: 100%;
       overflow: hidden;
       border-radius: 10px;
-    }
+      display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+}
+    
 
     .carousel-images {
       display: flex;
       transition: transform 0.5s ease-in-out;
     }
 
-    .carousel-images img {
-      width: 1200px;
-      height: 600px;
-      object-fit: cover;
-      flex-shrink: 0;
-    }
+.carousel-images img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;   /* show whole image */
+  margin: auto;
+  flex-shrink: 0;
+}
+.carousel-wrapper button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
 
-    .carousel-wrapper button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      z-index: 10;
-    }
 
     .carousel-wrapper button img {
-      width: 120px;
-      height: 120px;
+      width: clamp(50px, 10vw, 120px);
+      height: auto;
       transition: transform 0.2s ease;
     }
 
     .carousel-wrapper button img:hover {
       transform: scale(1.15);
     }
-
-    .carousel-wrapper .prev { left: -60px; }
-    .carousel-wrapper .next { right: -60px; }
-
     
-    .static-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;  
-  image-rendering: crisp-edges;
-  image-rendering: -webkit-optimize-contrast;
+
+    .carousel-wrapper .prev {
+  left: 0;
+  transform: translate(-50%, -50%); /* half inside, half outside */
 }
 
-
-.static-image img {
-  max-width: 150%;
-  max-height: 100%;
-  object-fit: none;  
-
+.carousel-wrapper .next {
+  right: 0;
+  transform: translate(50%, -50%);  /* half inside, half outside */
 }
 
-
+/* For small screens, just shrink the button icons */
+@media (max-width: 768px) {
+  .carousel-wrapper button img {
+    width: clamp(35px, 8vw, 80px);
+  }
+}
   </style>
 </head>
 <body>
@@ -257,21 +266,14 @@
             <a href="#s3" class="nav-item">Character</a>
             <a href="#s4" class="nav-item">Dev Note</a>
           </div>
-          <div class="nav-group">
-            <a href="#s2" class="nav-item">Gallery</a>
-            <a href="#s3" class="nav-item">News</a>
-            <a href="#s4" class="nav-item">Contact</a>
-          </div>
         </div>
       </div>
-
-      <div class="middle-box"></div>
 
       <div class="center-container">
         <div class="big-logo">
           <img src="Media/Version logo.webp" alt="Big Logo">
         </div>
-        <a href="https://drive.google.com/file/d/1HUIYhvxWufyM3FGoXxu3xrY074tEmDsT/view?usp=drive_link" class="download-btn">⬇ Download</a>
+        <a href="#" class="download-btn">⬇ Download</a>
       </div>
 
       <div class="bottom-box"></div>
@@ -279,7 +281,7 @@
 
     <section id="s2" class="section c2">
       <div class="static-image">
-        <img src="Media/event.webp">
+        <img src="Media/event.webp" alt="Event">
       </div>
     </section>
 
@@ -292,15 +294,10 @@
             <img src="Media/Alin.png" >
           </div>
         </div>
-        <button class="prev">
-          <img src="Media/Kiri.webp" alt="Previous">
-        </button>
-        <button class="next">
-          <img src="Media/kanan.webp" alt="Next">
-        </button>
+        <button class="prev"><img src="Media/Kiri.webp" alt="Previous"></button>
+        <button class="next"><img src="Media/Kanan.webp" alt="Next"></button>
       </div>
     </section>
-
   </main>
 
   <script>
@@ -315,7 +312,7 @@
       if (i < 0) index = slides.length - 1;
       else if (i >= slides.length) index = 0;
       else index = i;
-      carousel.style.transform = `translateX(${-index * 1200}px)`;
+      carousel.style.transform = `translateX(${-index * 100}%)`;
     }
 
     prevBtn.addEventListener("click", () => showSlide(index - 1));
